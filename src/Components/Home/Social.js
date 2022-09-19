@@ -1,19 +1,33 @@
 import React from "react";
+import SocialElement from "./SocialElement";
 
 const Social = () => {
-  return (
-    <div className="home__social">
-      <a href="https://www.instagram.com/vanshu_galhotra/" className="home__social-icon" target="_blank"  rel="noreferrer">
-        <i className="uil uil-instagram"></i>
-      </a>
-      <a href="https://www.linkedin.com/in/vanshugalhotra3332/" className="home__social-icon" target="_blank" rel="noreferrer">
-        <i className="uil uil-linkedin-alt"></i>
-      </a>
-      <a href="https://github.com/vanshugalhotra3332" className="home__social-icon" target="_blank" rel="noreferrer">
-        <i className="uil uil-github-alt"></i>
-      </a>
-    </div>
-  );
+  const socialData = [
+    {
+      url: "https://www.instagram.com/vanshu_galhotra/",
+      iconClass: "uil uil-instagram",
+    },
+    {
+      url: "https://www.linkedin.com/in/vanshugalhotra3332/",
+      iconClass: "uil uil-linkedin-alt",
+    },
+    {
+      url: "https://github.com/vanshugalhotra3332",
+      iconClass: "uil uil-github-alt",
+    },
+  ];
+
+  const socialElements = socialData.map((eachIconData) => {
+    return (
+      <SocialElement
+        key={eachIconData.url}
+        url={eachIconData.url}
+        iconClass={eachIconData.iconClass}
+      />
+    );
+  });
+
+  return <div className="home__social">{socialElements}</div>;
 };
 
 export default Social;

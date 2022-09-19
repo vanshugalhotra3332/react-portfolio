@@ -1,7 +1,33 @@
 import React from "react";
 import "./contact.css";
+import ContactInfoCard from "./ContactInfoCard";
 
 const Contact = () => {
+  const contactCardData = [
+    {
+      title: "Whatsapp",
+      value: "+91-8427733664",
+      url: "https://api.whatsapp.com/send?phone=8427733664&text=Wassup!",
+      icon: "bx bxl-whatsapp",
+    },
+    {
+      title: "Email",
+      value: "vanshugalhotra3332@gmail.com",
+      url: "mailto:vanshugalhotra3332@gmail.com",
+      icon: "bx bx-mail-send",
+    },
+    {
+      title: "Instagram",
+      value: "vanshu_galhotra",
+      url: "https://www.instagram.com/direct/new/",
+      icon: "bx bxl-instagram",
+    }
+  ];
+
+  const contactCardElements = contactCardData.map((eachCardData, index) => {
+    return <ContactInfoCard key={index} {...eachCardData} />;
+  });
+
   return (
     <section className="contact section" id="contact">
       <h2 className="section__title">Get in touch</h2>
@@ -10,45 +36,7 @@ const Contact = () => {
       <div className="contact__container container grid">
         <div className="contact__content">
           <h3 className="contact__title">Talk to me</h3>
-          <div className="contact__info">
-            <div className="contact__card">
-              <i className="bx bxl-whatsapp contact__card-icon"></i>
-              <h3 className="contact__card-title">Whatsapp</h3>
-              <span className="contact__card-data">+91-8427733664</span>
-              <a
-                href="https://api.whatsapp.com/send?phone=8427733664&text=Wassup!"
-                className="contact__button"
-              >
-                Write me{" "}
-                <i className="bx bx-right-arrow-alt contact__button-icon"></i>
-              </a>
-            </div>
-
-            <div className="contact__card">
-              <i className="bx bx-mail-send contact__card-icon"></i>
-              <h3 className="contact__card-title">Email</h3>
-              <span className="contact__card-data">
-                vanshugalhotra3332@gmail.com
-              </span>
-              <a
-                href="mailto:vanshugalhotra3332@gmail.com"
-                className="contact__button"
-              >
-                Write me{" "}
-                <i className="bx bx-right-arrow-alt contact__button-icon"></i>
-              </a>
-            </div>
-
-            <div className="contact__card">
-              <i className="bx bxl-instagram contact__card-icon"></i>
-              <h3 className="contact__card-title">Instagram</h3>
-              <span className="contact__card-data">vanshu_galhotra</span>
-              <a className="contact__button">
-                Write me{" "}
-                <i className="bx bx-right-arrow-alt contact__button-icon"></i>
-              </a>
-            </div>
-          </div>
+          <div className="contact__info">{contactCardElements}</div>
         </div>
         <div className="contact__content">
           <h3 className="contact__title">Write me your project</h3>

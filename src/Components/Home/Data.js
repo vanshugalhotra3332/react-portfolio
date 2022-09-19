@@ -1,10 +1,12 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-const Data = () => {
+const Data = (props) => {
+  const { name, title, description, btnText } = props;
   return (
     <div className="home__data">
       <h1 className="home__title">
-        Vanshu
+        {name}
         <svg
           width="36"
           height="36"
@@ -55,13 +57,10 @@ const Data = () => {
           ></path>
         </svg>
       </h1>
-      <h3 className="home__subtitle">MERN Stack Developer</h3>
-      <p className="home__description">
-        I'm a passionate, originally self-taught developer studying at D.A.V.
-        College, Chandigarh (Panjab University).
-      </p>
+      <h3 className="home__subtitle">{title}</h3>
+      <p className="home__description">{description}</p>
       <a href="#contact" className="button button-flex">
-        Say Hello
+        {btnText}
         <svg
           className="button__icon"
           xmlns="http://www.w3.org/2000/svg"
@@ -82,6 +81,20 @@ const Data = () => {
       </a>
     </div>
   );
+};
+
+Data.propTypes = {
+  name: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  btnText: PropTypes.string,
+};
+
+Data.defaultProps = {
+  name: "Your Name",
+  title: "Developer",
+  description: ".............",
+  btnText: "Say Hello",
 };
 
 export default Data;

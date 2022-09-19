@@ -1,27 +1,30 @@
 import React from "react";
+import InfoCard from "./InfoCard";
 
 const Info = () => {
-  return (
-    <div className="about__info grid">
-      <div className="about__box">
-        <i className="bx bx-award about__icon"></i>
-        <h3 className="about__title">Experience</h3>
-        <span className="about__subtitle">2 Years Working</span>
-      </div>
+  const InfoData = [
+    {
+      title: "Experience",
+      subtitle: "2 Years Working",
+      icon: "bx bx-award",
+    },
+    {
+      title: "Completed",
+      subtitle: "10+ Projects",
+      icon: "bx bx-briefcase-alt",
+    },
+    {
+      title: "Support",
+      subtitle: "Online 24/7",
+      icon: "bx bx-support",
+    },
+  ];
 
-      <div className="about__box">
-        <i className="bx bx-briefcase-alt about__icon"></i>
-        <h3 className="about__title">Completed</h3>
-        <span className="about__subtitle">10+ Projects</span>
-      </div>
+  const InfoElements = InfoData.map((eachCardData) => {
+    return <InfoCard key={eachCardData.title} {...eachCardData} />;
+  });
 
-      <div className="about__box">
-        <i className="bx bx-support about__icon"></i>
-        <h3 className="about__title">Support</h3>
-        <span className="about__subtitle">Online 24/7</span>
-      </div>
-    </div>
-  );
+  return <div className="about__info grid">{InfoElements}</div>;
 };
 
 export default Info;

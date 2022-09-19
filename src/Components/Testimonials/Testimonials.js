@@ -15,7 +15,7 @@ const Testimonials = () => {
       <span className="section__subtitle">Testimonial</span>
 
       <Swiper
-        className="testimonial__container" 
+        className="testimonial__container"
         loop={true}
         grabCursor={true}
         spaceBetween={24}
